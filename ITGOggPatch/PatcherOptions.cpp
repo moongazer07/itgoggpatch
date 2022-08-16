@@ -94,8 +94,8 @@ po::options_description PatcherOptions::GetCmdOptionsForHelp() const
 }
 
 PatcherOptions::PatcherOptions(int argc, char* argv[]) : m_displayHelp(false), m_displayVersion(false),
-	m_interactive(true), m_patchToRealLength(false), m_timeInSeconds(105),
-	m_lengthConditionType(condition_none), m_lengthCondition(120), m_startingPaths()
+	m_interactive(true), m_patchToRealLength(false), m_timeInSeconds(11),
+	m_lengthConditionType(condition_none), m_lengthCondition(15), m_startingPaths()
 {
 	po::options_description desc = GetCmdOptions();
 
@@ -124,13 +124,13 @@ PatcherOptions::PatcherOptions(int argc, char* argv[]) : m_displayHelp(false), m
 
 	if(!unpatch)
 	{
-		TimeInSeconds(105);
-		UseLengthGreaterThanCondition(120);
+		TimeInSeconds(11);
+		UseLengthGreaterThanCondition(15);
 	}
 	else
 	{
 		PatchToRealLength();
-		UseLengthEqualCondition(105);
+		UseLengthEqualCondition(11);
 	}
 
 	if(patchall)
